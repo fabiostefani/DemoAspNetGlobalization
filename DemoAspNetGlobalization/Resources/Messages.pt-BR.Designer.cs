@@ -77,5 +77,23 @@ namespace DemoAspNetGlobalization.Resources {
                 return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Oi
+        /// </summary>
+        public static string Hi {
+            get {
+                return ResourceManager.GetString("Hi", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Testing
+        /// </summary>
+        public static string Teste22 {
+            get {
+                return ResourceManager.GetString("Teste22", resourceCulture);
+            }
+        }
     }
 }

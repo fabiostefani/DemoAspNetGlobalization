@@ -1,0 +1,10 @@
+{
+    "HelloWorld": {
+      "en-US": "Hello World - JSON",
+      "pt-BR": "Olá mundo! - JSON"
+    },
+    "Welcome": {
+      "en-US": "Welcome - JSON",
+      "pt-BR": "Bem-vindo - JSON"
+    }
+  }

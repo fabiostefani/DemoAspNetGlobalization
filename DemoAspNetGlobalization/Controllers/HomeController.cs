@@ -13,14 +13,18 @@ namespace DemoAspNetGlobalization.Controllers
         //
         //https://localhost:44336/home
         [HttpGet]
-        public IActionResult Get([FromServices] IStringLocalizer<Messages> localizer)
+        public IActionResult Get([FromServices] IStringLocalizer localizer, [FromServices] IRegisterUserCommandValidation validation)
         {
+            var command = new RegisterUserCommand(string.Empty, string.Empty, string.Empty);
+            var result = validation.Validate(command);
             return Ok(new
             {
-                Message = localizer["HelloWorld"].Value,
-                Message2 = localizer["Teste"].Value,
+                Localizer = localizer["HelloWorld"].Value,
+                Message2 = localizer["Welcome"].Value,
+                Direct = Messages.Teste22,
+                Result = result,
                 Date = DateTime.Now,
-                DateUtl = DateTime.UtcNow
+                DateUtc = DateTime.UtcNow
             });
         }
     }

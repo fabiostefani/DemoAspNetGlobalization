@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoAspNetGlobalization.Resources;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
@@ -28,6 +30,8 @@ namespace DemoAspNetGlobalization
         {
             services.AddLocalization();
             services.AddControllers();
+            services.AddSingleton<IStringLocalizer, JsonStringLocalizer>();
+            services.AddSingleton<IRegisterUserCommandValidation, RegisterUserCommandValidation>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoAspNetGlobalization", Version = "v1" });
